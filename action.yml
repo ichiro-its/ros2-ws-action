@@ -1,0 +1,10 @@
+name: 'ROS 2 Build and Test Project'
+description: 'Build and test a ROS 2 project'
+author: 'ICHIRO ITS'
+branding:
+  icon: 'activity'
+  color: 'gray-dark'
+inputs:
+runs:
+  using: 'composite'
+  steps:
