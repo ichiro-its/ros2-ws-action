@@ -43,7 +43,7 @@ jobs:
 - name: Build and test workspace
   uses: ichiro-its/ros2-build-and-test-action@main
   with:
-    ros2-distro: rolling
+    ros2-distro: dashing
 ```
 
 ## License

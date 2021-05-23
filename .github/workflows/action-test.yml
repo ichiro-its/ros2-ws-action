@@ -14,24 +14,16 @@ jobs:
             ros2-distro: dashing
           - os: ubuntu-20.04
             ros2-distro: foxy
-          - os: ubuntu-20.04
-            ros2-distro: rolling
-            experimental: true
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
-      - name: Checkout ROS 2 examples
+      - name: Checkout ROS 2 examples on non master branch
         uses: actions/checkout@v2.3.4
         with:
           repository: ros2/examples
-          fetch-depth: 0
+          ref: ${{ matrix.ros2-distro }}
           path: examples
-
-      - name: Checkout ROS 2 examples on non master branch
-        if: ${{ matrix.ros2-distro != 'rolling' }}
-        run: git checkout ${{ matrix.ros2-distro }}
-        working-directory: examples
 
       - name: Only test some packages
         run: |
