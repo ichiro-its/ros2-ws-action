@@ -15,3 +15,6 @@ runs:
     - name: Setup dependencies
       run: bash ${{ github.action_path }}/scripts/setup-dependencies.bash ${{ inputs.ros2-distro }}
       shell: bash
+    - name: Build and test project
+      run: bash ${{ github.action_path }}/scripts/build-and-test.bash ${{ inputs.ros2-distro }}
+      shell: bash

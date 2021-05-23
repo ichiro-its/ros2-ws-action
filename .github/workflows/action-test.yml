@@ -49,5 +49,5 @@ jobs:
       - name: Upload build result
         uses: actions/upload-artifact@v2.2.3
         with:
-          name: Package
-          path: package
+          name: Install
+          path: install
