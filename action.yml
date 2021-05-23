@@ -5,6 +5,13 @@ branding:
   icon: 'activity'
   color: 'gray-dark'
 inputs:
+  ros2-distro:
+    description: 'The ROS 2 distribution to be used.'
+    required: false
+    default: 'foxy'
 runs:
   using: 'composite'
   steps:
+    - name: Setup dependencies
+      run: bash ${{ github.action_path }}/scripts/setup-dependencies.bash ${{ inputs.ros2-distro }}
+      shell: bash
