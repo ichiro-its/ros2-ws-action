@@ -1,0 +1,45 @@
+name: Action Test
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+jobs:
+  action-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-18.04
+            ros2-distro: dashing
+          - os: ubuntu-20.04
+            ros2-distro: foxy
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Checkout ROS 2 examples on non master branch
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: ros2/examples
+          ref: ${{ matrix.ros2-distro }}
+          path: examples
+
+      - name: Only test some packages
+        run: |
+          mv examples/rclcpp/topics cpptopics || true
+          mv examples/rclcpp/minimal_publisher . || true
+          mv examples/rclcpp/minimal_subscriber . || true
+          mv examples/rclpy/topics pytopics || true
+          rm -r examples || true
+
+      - name: Test the action
+        uses: ./
+        with:
+          ros2-distro: ${{ matrix.ros2-distro }}
+
+      - name: Upload build result
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          name: Install
+          path: install
