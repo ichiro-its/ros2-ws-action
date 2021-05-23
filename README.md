@@ -1,6 +1,6 @@
-# ROS 2 Build and Test Project Action
+# ROS 2 Build and Test Workspace Action
 
-This action could be used to build and test a [ROS 2](https://www.ros.org/) project from source.
+This action could be used to build and test a [ROS 2](https://www.ros.org/) workspace from source.
 
 ## License
 

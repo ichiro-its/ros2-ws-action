@@ -14,5 +14,5 @@ sudo apt update && sudo apt install -y \
 # Initialize rosdep
 sudo rosdep init || true
 
-# Install ROS 2 project dependencies
+# Install ROS 2 workspace dependencies
 rosdep update && rosdep install -y --rosdistro "$ROS2_DISTRO" --from-paths . || exit $?

@@ -1,5 +1,5 @@
-name: 'ROS 2 Build and Test Project'
-description: 'Build and test a ROS 2 project from source'
+name: 'ROS 2 Build and Test Workspace'
+description: 'Build and test a ROS 2 workspace from source'
 author: 'ICHIRO ITS'
 branding:
   icon: 'activity'
@@ -15,6 +15,6 @@ runs:
     - name: Setup dependencies
       run: bash ${{ github.action_path }}/scripts/setup-dependencies.bash ${{ inputs.ros2-distro }}
       shell: bash
-    - name: Build and test project
+    - name: Build and test workspace
       run: bash ${{ github.action_path }}/scripts/build-and-test.bash ${{ inputs.ros2-distro }}
       shell: bash
