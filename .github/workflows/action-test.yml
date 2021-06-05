@@ -44,7 +44,7 @@ jobs:
           name: Install
           path: install
 
-  build-fail-test:
+  action-test-failed-build:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout this repository
@@ -52,14 +52,14 @@ jobs:
 
       - name: Only test some packages
         run: |
-          mv test/build_fail build_fail || true
+          mv test/failed_build failed_build || true
           rm -rf examples test || true
 
       - name: Test the action
-        id: failstep
+        id: failedstep
         continue-on-error: true
         uses: ./
 
       - name: Fail if previous step has succeeded
-        if: ${{ steps.failstep.outcome == 'success' }}
+        if: ${{ steps.failedstep.outcome == 'success' }}
         run: false
