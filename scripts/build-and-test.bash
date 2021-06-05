@@ -4,10 +4,15 @@ ROS2_DISTRO="$1"
 source /opt/ros/$ROS2_DISTRO/setup.bash || exit $?
 
 # Build workspace
-colcon build --event-handlers console_cohesion+ --cmake-args || exit $?
+colcon build \
+  --event-handlers console_cohesion+ \
+  --cmake-args || exit $?
 
 # Source build result environment
 source install/setup.bash || exit $?
 
 # Test workspace
-colcon test --event-handlers console_cohesion+ --pytest-with-coverage || exit $?
+colcon test \
+  --event-handlers console_cohesion+ \
+  --pytest-with-coverage \
+  --return-code-on-test-failure || exit $?
