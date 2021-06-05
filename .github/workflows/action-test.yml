@@ -31,7 +31,7 @@ jobs:
           mv examples/rclcpp/minimal_publisher . || true
           mv examples/rclcpp/minimal_subscriber . || true
           mv examples/rclpy/topics pytopics || true
-          rm -r examples || true
+          rm -rf examples test || true
 
       - name: Test the action
         uses: ./
@@ -50,10 +50,15 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
-      - name: Fail the step
+      - name: Only test some packages
+        run: |
+          mv test/build_fail build_fail || true
+          rm -rf examples test || true
+
+      - name: Test the action
         id: failstep
         continue-on-error: true
-        run: false
+        uses: ./
 
       - name: Fail if previous step has succeeded
         if: ${{ steps.failstep.outcome == 'success' }}
