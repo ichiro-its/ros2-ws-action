@@ -43,3 +43,19 @@ jobs:
         with:
           name: Install
           path: install
+
+  build-fail-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Fail the step
+        run: false
+
+      - name: Fail if previous step has succeeded
+        run: false
+
+      - name: Success if previous step has failed
+        if: ${{ failure() }}
+        run: true
