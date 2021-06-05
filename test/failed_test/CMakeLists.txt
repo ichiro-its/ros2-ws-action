@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(failed_build)
+project(failed_test)
 
 if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
@@ -19,5 +19,10 @@ find_package(ament_cmake REQUIRED)
 add_executable(main "src/main.cpp")
 
 install(TARGETS main DESTINATION "lib/${PROJECT_NAME}")
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
 ament_package()
