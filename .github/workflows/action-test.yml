@@ -11,8 +11,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-18.04
-            ros2-distro: dashing
           - os: ubuntu-20.04
             ros2-distro: foxy
           - os: ubuntu-20.04
