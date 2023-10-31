@@ -32,7 +32,7 @@ jobs:
         uses: ichiro-its/ros2-build-and-test-action@main
 ```
 
-> This will be defaulted to use [ROS 2 Foxy Fitzroy](https://docs.ros.org/en/foxy/Releases/Release-Foxy-Fitzroy.html).
+> This will be defaulted to use [ROS 2 Iron Irwini](https://docs.ros.org/en/foxy/Releases/Release-Iron-Irwini.html).
 
 > It's recommended to not checkout the repository in the root directory.
 > Else, test could be failed because the package's files are mixed with the build result.
@@ -43,7 +43,7 @@ jobs:
 - name: Build and test workspace
   uses: ichiro-its/ros2-build-and-test-action@main
   with:
-    ros2-distro: dashing
+    ros2-distro: rolling
 ```
 
 ## License
