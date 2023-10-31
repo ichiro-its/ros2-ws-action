@@ -48,4 +48,6 @@ jobs:
 
 ## License
 
-This project is maintained by [ICHIRO ITS](https://github.com/ichiro-its) and licensed under the [MIT License](./LICENSE).
+This project is licensed under the terms of the [MIT License](./LICENSE).
+
+Copyright © 2021-2023 [ICHIRO ITS](https://github.com/ichiro-its)
