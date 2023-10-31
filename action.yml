@@ -8,7 +8,7 @@ inputs:
   ros2-distro:
     description: 'The ROS 2 distribution to be used.'
     required: false
-    default: 'foxy'
+    default: 'iron'
 runs:
   using: 'composite'
   steps:

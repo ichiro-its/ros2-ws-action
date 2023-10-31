@@ -11,10 +11,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-20.04
-            ros2-distro: foxy
-          - os: ubuntu-20.04
-            ros2-distro: galactic
+          - os: ubuntu-22.04
+            ros2-distro: humble
+          - os: ubuntu-22.04
+            ros2-distro: iron
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
