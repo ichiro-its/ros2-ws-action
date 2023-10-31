@@ -1,16 +1,16 @@
-name: 'ROS 2 Build and Test Workspace'
-description: 'Build and test a ROS 2 workspace from source'
-author: 'ICHIRO ITS'
+name: ROS 2 Build and Test Workspace
+description: Build and test a ROS 2 workspace from source
+author: ICHIRO ITS
 branding:
-  icon: 'activity'
-  color: 'gray-dark'
+  icon: activity
+  color: gray-dark
 inputs:
   ros2-distro:
-    description: 'The ROS 2 distribution to be used.'
+    description: The ROS 2 distribution to be used.
     required: false
-    default: 'iron'
+    default: iron
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Setup dependencies
       run: bash ${{ github.action_path }}/scripts/setup-dependencies.bash ${{ inputs.ros2-distro }}
