@@ -25,11 +25,9 @@ jobs:
 
       - name: Only test some packages
         run: |
-          mv examples/rclcpp/topics cpptopics || true
-          mv examples/rclcpp/minimal_publisher . || true
-          mv examples/rclcpp/minimal_subscriber . || true
-          mv examples/rclpy/topics pytopics || true
-          rm -rf examples test || true
+          mv examples/rclcpp/topics cpptopics
+          mv examples/rclpy/topics pytopics
+          rm -rf examples
 
       - name: Test the action
         uses: ./
@@ -49,10 +47,17 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
-      - name: Only test some packages
+      - name: Checkout ROS 2 examples
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: ros2/examples
+          ref: iron
+          path: examples
+
+      - name: Adjust packages
         run: |
-          mv test/failed_build failed_build
-          rm -rf examples test
+          mv examples/rclcpp/topics/minimal_publisher .
+          rm -rf examples minimal_publisher/lambda.cpp
 
       - name: Test the action
         id: action
@@ -70,10 +75,17 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
-      - name: Only test some packages
+      - name: Checkout ROS 2 examples
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: ros2/examples
+          ref: iron
+          path: examples
+
+      - name: Adjust packages
         run: |
-          mv test/failed_test failed_test
-          rm -rf examples test
+          mv examples/rclcpp/topics/minimal_publisher .
+          sed -i 's/return 0;/int unused; return 0;/g' minimal_publisher/lambda.cpp
 
       - name: Test the action
         id: action
