@@ -17,7 +17,7 @@ The ROS 2 Build and Test Workspace Action offers the following key features:
 
 ## Usage
 
-For more information, see [action.yml](./action.yml) and the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions).
+To get started with the ROS 2 Build and Test Workspace Action, you can refer to the [action.yaml](./action.yaml) file for detailed configuration options. Additionally, if you are new to GitHub Actions, you can explore the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) for a comprehensive overview.
 
 ### Default Usage
 
