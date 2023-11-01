@@ -19,6 +19,14 @@ The ROS 2 Build and Test Workspace Action offers the following key features:
 
 To get started with the ROS 2 Build and Test Workspace Action, you can refer to the [action.yaml](./action.yaml) file for detailed configuration options. Additionally, if you are new to GitHub Actions, you can explore the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) for a comprehensive overview.
 
+### Inputs
+
+Here are the available input parameters for the ROS 2 Build and Test Workspace Action:
+
+| Name | Default | Description |
+| --- | --- | --- |
+| `ros2-distro` | `iron` | Specify the version of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
+
 ### Default Usage
 
 ```yaml
