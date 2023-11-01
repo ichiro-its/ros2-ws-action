@@ -5,7 +5,8 @@ on:
   push:
     branches: [main]
 jobs:
-  action-test:
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
@@ -41,7 +42,8 @@ jobs:
           name: Install
           path: install
 
-  action-test-failed-build:
+  failed-build:
+    name: Failed Build
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout this repository
@@ -61,7 +63,8 @@ jobs:
         if: ${{ steps.action.outcome == 'success' }}
         run: false
 
-  action-test-failed-test:
+  failed-test:
+    name: Failed Test
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout this repository
