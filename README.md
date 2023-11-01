@@ -3,7 +3,7 @@
 [![latest version](https://img.shields.io/github/v/release/ichiro-its/ros2-build-and-test-action)](https://github.com/ichiro-its/ros2-build-and-test-action/releases/)
 [![commits since latest version](https://img.shields.io/github/commits-since/ichiro-its/ros2-build-and-test-action/latest)](https://github.com/ichiro-its/ros2-build-and-test-action/releases/)
 [![license](https://img.shields.io/github/license/ichiro-its/ros2-build-and-test-action)](./LICENSE)
-[![test status](https://img.shields.io/github/workflow/status/ichiro-its/ros2-build-and-test-action/Action%20Test?label=test)](https://github.com/ichiro-its/ros2-build-and-test-action/actions)
+[![test status](https://img.shields.io/github/workflow/status/ichiro-its/ros2-build-and-test-action/test.yaml?label=test&branch=main)](https://github.com/ichiro-its/ros2-build-and-test-action/actions/workflows/test.yaml)
 
 This action could be used to build and test a [ROS 2](https://www.ros.org/) workspace from source.
 
