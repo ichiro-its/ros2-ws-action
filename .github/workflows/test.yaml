@@ -14,10 +14,10 @@ jobs:
         ros2-distro: [humble, iron]
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
 
       - name: Checkout ROS 2 examples on non master branch
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
           ref: ${{ matrix.ros2-distro }}
@@ -45,10 +45,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
 
       - name: Checkout ROS 2 examples
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
           ref: iron
@@ -73,10 +73,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
 
       - name: Checkout ROS 2 examples
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
           ref: iron
