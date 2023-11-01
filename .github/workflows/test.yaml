@@ -47,10 +47,17 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
-      - name: Only test some packages
+      - name: Checkout ROS 2 examples
+        uses: actions/checkout@v2.3.4
+        with:
+          repository: ros2/examples
+          ref: iron
+          path: examples
+
+      - name: Adjust packages
         run: |
-          mv test/failed_build failed_build
-          rm -rf examples test
+          mv examples/rclcpp/topics/minimal_publisher .
+          rm -rf examples test minimal_publisher/lambda.cpp
 
       - name: Test the action
         id: action
