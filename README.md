@@ -7,6 +7,14 @@
 The ROS 2 Build and Test Workspace Action is a [GitHub Action](https://github.com/features/actions) designed to build and test a [ROS 2](https://www.ros.org/) workspace containing multiple packages.
 This action automatically sets up ROS 2 and other dependencies used in each package, and then proceeds to build and test them all using [colcon](https://colcon.readthedocs.io/en/released/user/quick-start.html).
 
+## Key Features
+
+The ROS 2 Build and Test Workspace Action offers the following key features:
+
+- **Automated ROS 2 Distribution Setup:** Automatically sets up a specified ROS 2 distribution.
+- **Dependency Management:** Automatically installs dependencies required for each package.
+- **Efficient Building and Testing:** Utilizes colcon for streamlined building and testing of each package.
+
 ## Usage
 
 For more information, see [action.yml](./action.yml) and the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions).
