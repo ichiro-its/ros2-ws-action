@@ -28,6 +28,12 @@ runs:
         rosdep update
         rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
 
-    - name: Build and test workspace
-      run: bash ${{ github.action_path }}/scripts/build-and-test.bash ${{ inputs.ros2-distro }}
-      shell: bash
+    - shell: bash
+      run: |
+        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
+        colcon build --event-handlers console_cohesion+ --cmake-args
+
+    - shell: bash
+      run: |
+        source install/setup.bash
+        colcon test --event-handlers console_cohesion+ --pytest-with-coverage --return-code-on-test-failure
