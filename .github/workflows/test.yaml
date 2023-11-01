@@ -45,26 +45,42 @@ jobs:
           name: Install
           path: install
 
-  action-test-failure:
-    runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        package: [failed_build, failed_test]
+  action-test-failed-build:
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v2.3.4
 
       - name: Only test some packages
         run: |
-          mv test/${{ matrix.package }} ${{ matrix.package }} || true
-          rm -rf examples test || true
+          mv test/failed_build failed_build
+          rm -rf examples test
 
       - name: Test the action
-        id: failedstep
+        id: action
         continue-on-error: true
         uses: ./
 
       - name: Fails if previous step has succeeded
-        if: ${{ steps.failedstep.outcome == 'success' }}
+        if: ${{ steps.action.outcome == 'success' }}
+        run: false
+
+  action-test-failed-test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Only test some packages
+        run: |
+          mv test/failed_test failed_test
+          rm -rf examples test
+
+      - name: Test the action
+        id: action
+        continue-on-error: true
+        uses: ./
+
+      - name: Fails if previous step has succeeded
+        if: ${{ steps.action.outcome == 'success' }}
         run: false
