@@ -5,6 +5,32 @@ on:
   push:
     branches: [main]
 jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        ros2-distro: [humble, iron]
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Checkout ROS 2 examples
+        uses: actions/checkout@v4.1.1
+        with:
+          repository: ros2/examples
+          ref: ${{ matrix.ros2-distro }}
+          path: examples
+          sparse-checkout: |
+            examples/rclcpp/topics
+            examples/rclpy/topics
+
+      - name: Setup workspace
+        uses: ./setup
+        with:
+          ros2-distro: ${{ matrix.ros2-distro }}
+
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-22.04

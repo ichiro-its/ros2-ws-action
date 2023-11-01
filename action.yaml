@@ -12,21 +12,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - shell: bash
-      run: |
-        sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-
-    - shell: bash
-      run: |
-        sudo apt update
-        sudo apt install -y python3-colcon-common-extensions python3-rosdep
-
-    - shell: bash
-      run: |
-        sudo rosdep init
-        rosdep update
-        rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
+    - uses: ichiro-its/ros2-build-and-test-action/setup@dfe0ad86dc3adcc73f9314c8ab4d585263caa7f0
+      with:
+        ros2-distro: ${{ inputs.ros2-distro }}
 
     - shell: bash
       run: |
