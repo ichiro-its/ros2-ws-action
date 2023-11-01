@@ -4,7 +4,8 @@
 [![license](https://img.shields.io/github/license/ichiro-its/ros2-build-and-test-action?style=flat-square)](./LICENSE)
 [![test status](https://img.shields.io/github/actions/workflow/status/ichiro-its/ros2-build-and-test-action/test.yaml?label=test&branch=main&style=flat-square)](https://github.com/ichiro-its/ros2-build-and-test-action/actions/workflows/test.yaml)
 
-This action could be used to build and test a [ROS 2](https://www.ros.org/) workspace from source.
+The ROS 2 Build and Test Workspace Action is a [GitHub Action](https://github.com/features/actions) designed to build and test a [ROS 2](https://www.ros.org/) workspace containing multiple packages.
+This action automatically sets up ROS 2 and other dependencies used in each package, and then proceeds to build and test them all using [colcon](https://colcon.readthedocs.io/en/released/user/quick-start.html).
 
 ## Usage
 
