@@ -27,37 +27,37 @@ Here are the available input parameters for the ROS 2 Build and Test Workspace A
 | --- | --- | --- |
 | `ros2-distro` | `iron` | Specify the version of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
 
-### Default Usage
+### Examples
+
+Here is the basic example of how to use the ROS 2 Build and Test Workspace Action to build and test a ROS 2 workspace in your GitHub Actions workflow:
 
 ```yaml
-name: Build and Test Workspace
+name: ROS 2 CI
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ main ]
 jobs:
-  build-and-test-workspace:
+  build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout this repository
-        uses: actions/checkout@v2.3.4
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
         with:
-          path: repository
-      - name: Build and test workspace
-        uses: ichiro-its/ros2-build-and-test-action@main
+          path: workspace
+
+      - name: Build and test
+        uses: ichiro-its/ros2-build-and-test-action@v1.0.0
 ```
 
-> This will be defaulted to use [ROS 2 Iron Irwini](https://docs.ros.org/en/foxy/Releases/Release-Iron-Irwini.html).
+> It is recommended not to checkout the repository in the root directory. Otherwise, tests may fail because the package's files could be mixed with the build result.
 
-> It's recommended to not checkout the repository in the root directory.
-> Else, test could be failed because the package's files are mixed with the build result.
+#### Specifying ROS 2 Distribution
 
-### Use Different ROS 2 Distribution
+You can specify the ROS 2 distribution to be used by providing it as an input parameter:
 
 ```yaml
-- name: Build and test workspace
-  uses: ichiro-its/ros2-build-and-test-action@main
+- name: Build and test
+  uses: ichiro-its/ros2-build-and-test-action@v1.0.0
   with:
     ros2-distro: rolling
 ```
