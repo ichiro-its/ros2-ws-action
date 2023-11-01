@@ -8,6 +8,7 @@ jobs:
   action-test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-22.04
@@ -47,6 +48,7 @@ jobs:
   action-test-failure:
     runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
         package: [failed_build, failed_test]
     steps:
