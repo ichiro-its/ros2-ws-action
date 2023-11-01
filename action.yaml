@@ -12,9 +12,28 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Setup dependencies
-      run: bash ${{ github.action_path }}/scripts/setup-dependencies.bash ${{ inputs.ros2-distro }}
-      shell: bash
-    - name: Build and test workspace
-      run: bash ${{ github.action_path }}/scripts/build-and-test.bash ${{ inputs.ros2-distro }}
-      shell: bash
+    - shell: bash
+      run: |
+        sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+    - shell: bash
+      run: |
+        sudo apt update
+        sudo apt install -y python3-colcon-common-extensions python3-rosdep
+
+    - shell: bash
+      run: |
+        sudo rosdep init
+        rosdep update
+        rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
+
+    - shell: bash
+      run: |
+        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
+        colcon build --event-handlers console_cohesion+ --cmake-args
+
+    - shell: bash
+      run: |
+        source install/setup.bash
+        colcon test --event-handlers console_cohesion+ --pytest-with-coverage --return-code-on-test-failure
