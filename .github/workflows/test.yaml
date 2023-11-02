@@ -23,8 +23,8 @@ jobs:
           ref: ${{ matrix.ros2-distro }}
           path: examples
           sparse-checkout: |
-            examples/rclcpp/topics
-            examples/rclpy/topics
+            rclcpp/topics
+            rclpy/topics
 
       - name: Setup workspace
         uses: ./setup
