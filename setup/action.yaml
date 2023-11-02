@@ -27,3 +27,6 @@ runs:
         sudo rosdep init
         rosdep update
         rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
+        if [ -f '/opt/ros/${{ inputs.ros2-distro }}/setup.bash' ]; then
+          echo 'source /opt/ros/${{ inputs.ros2-distro }}/setup.bash' >> ~/.bashrc
+        fi
