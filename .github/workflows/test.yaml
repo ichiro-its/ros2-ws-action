@@ -5,8 +5,8 @@ on:
   push:
     branches: [main]
 jobs:
-  setup:
-    name: Setup
+  setup-and-build:
+    name: Setup and Build
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
@@ -28,6 +28,11 @@ jobs:
 
       - name: Setup workspace
         uses: ./setup
+        with:
+          ros2-distro: ${{ matrix.ros2-distro }}
+
+      - name: Build workspace
+        uses: ./build
         with:
           ros2-distro: ${{ matrix.ros2-distro }}
 
