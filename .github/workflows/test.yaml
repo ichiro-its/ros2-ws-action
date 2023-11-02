@@ -5,8 +5,8 @@ on:
   push:
     branches: [main]
 jobs:
-  setup-and-build:
-    name: Setup and Build
+  individual-setup-build:
+    name: Individual Setup and build
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
