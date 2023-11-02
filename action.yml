@@ -16,10 +16,9 @@ runs:
       with:
         ros2-distro: ${{ inputs.ros2-distro }}
 
-    - shell: bash
-      run: |
-        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
-        colcon build --event-handlers console_cohesion+ --cmake-args
+    - uses: ichiro-its/ros2-build-and-test-action/build@83681337c83fd88d63d1826964a55edbaf56ea2f
+      with:
+        ros2-distro: ${{ inputs.ros2-distro }}
 
     - shell: bash
       run: |
