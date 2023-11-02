@@ -36,8 +36,8 @@ jobs:
         with:
           ros2-distro: ${{ matrix.ros2-distro }}
 
-  build-and-test:
-    name: Build and Test
+  setup-build-test:
+    name: Setup, Build, and Test
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
