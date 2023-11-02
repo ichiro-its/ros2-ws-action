@@ -14,5 +14,5 @@ runs:
   steps:
     - shell: bash
       run: |
-        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
+        source install/setup.bash
         colcon build --event-handlers console_cohesion+ --cmake-args
