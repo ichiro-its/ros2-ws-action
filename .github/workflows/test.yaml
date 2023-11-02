@@ -48,12 +48,9 @@ jobs:
           repository: ros2/examples
           ref: ${{ matrix.ros2-distro }}
           path: examples
-
-      - name: Only test some packages
-        run: |
-          mv examples/rclcpp/topics cpptopics
-          mv examples/rclpy/topics pytopics
-          rm -rf examples
+          sparse-checkout: |
+            rclcpp/topics
+            rclpy/topics
 
       - name: Test the action
         uses: ./
@@ -79,11 +76,10 @@ jobs:
           repository: ros2/examples
           ref: iron
           path: examples
+          sparse-checkout: rclcpp/topics/minimal_publisher
 
       - name: Adjust packages
-        run: |
-          mv examples/rclcpp/topics/minimal_publisher .
-          rm -rf examples minimal_publisher/lambda.cpp
+        run: rm examples/rclcpp/topics/minimal_publisher/lambda.cpp
 
       - name: Test the action
         id: action
@@ -107,11 +103,10 @@ jobs:
           repository: ros2/examples
           ref: iron
           path: examples
+          sparse-checkout: rclcpp/topics/minimal_publisher
 
       - name: Adjust packages
-        run: |
-          mv examples/rclcpp/topics/minimal_publisher .
-          sed -i 's/return 0;/int unused; return 0;/g' minimal_publisher/lambda.cpp
+        run: sed -i 's/return 0;/int unused   ;;;; return 0;/g' examples/rclcpp/topics/minimal_publisher/lambda.cpp
 
       - name: Test the action
         id: action
