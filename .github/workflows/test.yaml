@@ -42,7 +42,7 @@ jobs:
           distro: ${{ matrix.distro }}
 
   setup-build-test:
-    name: Setup, Build, and Test
+    name: Setup, Build and Test
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
@@ -52,7 +52,7 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v4.1.1
 
-      - name: Checkout ROS 2 examples on non master branch
+      - name: Checkout ROS 2 examples
         uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
@@ -62,7 +62,7 @@ jobs:
             rclcpp/topics
             rclpy/topics
 
-      - name: Test the action
+      - name: Setup, build and test workspace
         uses: ./
         with:
           distro: ${{ matrix.distro }}
