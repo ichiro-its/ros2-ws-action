@@ -25,7 +25,7 @@ Here are the available input parameters for the ROS 2 Workspace Action:
 
 | Name | Default | Description |
 | --- | --- | --- |
-| `ros2` | `iron` | Specify the distribution of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
+| `distro` | `iron` | Specify the distribution of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
 
 ### Examples
 
