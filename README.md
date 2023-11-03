@@ -25,7 +25,7 @@ Here are the available input parameters for the ROS 2 Build and Test Workspace A
 
 | Name | Default | Description |
 | --- | --- | --- |
-| `ros2-distro` | `iron` | Specify the version of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
+| `ros2` | `iron` | Specify the distribution of ROS 2 to be set up using this action. You can refer to the [ROS 2 Distributions](https://docs.ros.org/en/rolling/Releases.html) for information about the available distributions to be used. |
 
 ### Examples
 
@@ -59,7 +59,7 @@ You can specify the ROS 2 distribution to be used by providing it as an input pa
 - name: Build and test
   uses: ichiro-its/ros2-build-and-test-action@v1.0.0
   with:
-    ros2-distro: rolling
+    distro: rolling
 ```
 
 ## License

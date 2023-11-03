@@ -5,8 +5,8 @@ branding:
   icon: activity
   color: gray-dark
 inputs:
-  ros2-distro:
-    description: The ROS 2 distribution to be used.
+  distro:
+    description: The ROS 2 distribution to be used
     required: false
     default: iron
 runs:
@@ -26,9 +26,9 @@ runs:
       run: |
         sudo rosdep init
         rosdep update
-        rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
+        rosdep install -y --rosdistro ${{ inputs.distro }} --from-paths .
 
     - shell: bash
       run: |
-        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
+        source /opt/ros/${{ inputs.distro }}/setup.bash
         colcon build --packages-skip-regex '.*'
