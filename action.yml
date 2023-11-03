@@ -18,7 +18,4 @@ runs:
 
     - uses: ichiro-its/ros2-ws-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
 
-    - shell: bash
-      run: |
-        source install/setup.bash
-        colcon test --event-handlers console_cohesion+ --pytest-with-coverage --return-code-on-test-failure
+    - uses: ichiro-its/ros2-ws-action/test@3aa0cc0847b20cb0b907952964d5c4e3594c1924
