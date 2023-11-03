@@ -45,7 +45,7 @@ jobs:
         with:
           path: workspace
 
-      - name: Build and test
+      - name: Build and test workspace
         uses: ichiro-its/ros2-ws-action@v1.0.0
 ```
 
@@ -56,7 +56,7 @@ jobs:
 You can specify the ROS 2 distribution to be used by providing it as an input parameter:
 
 ```yaml
-- name: Build and test
+- name: Build and test workspace
   uses: ichiro-its/ros2-ws-action@v1.0.0
   with:
     distro: rolling
