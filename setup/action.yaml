@@ -27,3 +27,8 @@ runs:
         sudo rosdep init
         rosdep update
         rosdep install -y --rosdistro ${{ inputs.ros2-distro }} --from-paths .
+
+    - shell: bash
+      run: |
+        source /opt/ros/${{ inputs.ros2-distro }}/setup.bash
+        colcon build --packages-skip-regex '.*'
