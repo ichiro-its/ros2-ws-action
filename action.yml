@@ -1,5 +1,5 @@
-name: ROS 2 Build and Test Workspace
-description: Build and test a ROS 2 workspace from source
+name: ROS 2 Workspace Action
+description: Setup, build and test a ROS 2 workspace from source
 author: ICHIRO ITS
 branding:
   icon: activity
