@@ -4,11 +4,6 @@ author: ICHIRO ITS
 branding:
   icon: activity
   color: gray-dark
-inputs:
-  ros2-distro:
-    description: The ROS 2 distribution to be used.
-    required: false
-    default: iron
 runs:
   using: composite
   steps:
