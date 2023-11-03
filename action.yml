@@ -1,5 +1,5 @@
-name: ROS 2 Build and Test Workspace
-description: Build and test a ROS 2 workspace from source
+name: ROS 2 Workspace Action
+description: Setup, build and test a ROS 2 workspace from source
 author: ICHIRO ITS
 branding:
   icon: activity
@@ -12,11 +12,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ichiro-its/ros2-build-and-test-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
+    - uses: ichiro-its/ros2-ws-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
       with:
         distro: ${{ inputs.distro }}
 
-    - uses: ichiro-its/ros2-build-and-test-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
+    - uses: ichiro-its/ros2-ws-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
 
     - shell: bash
       run: |

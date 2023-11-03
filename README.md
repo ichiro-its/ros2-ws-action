@@ -1,15 +1,15 @@
-# ROS 2 Build and Test Workspace Action
+# ROS 2 Workspace Action
 
-[![latest version](https://img.shields.io/github/v/release/ichiro-its/ros2-build-and-test-action?style=flat-square)](https://github.com/ichiro-its/ros2-build-and-test-action/releases/)
-[![license](https://img.shields.io/github/license/ichiro-its/ros2-build-and-test-action?style=flat-square)](./LICENSE)
-[![test status](https://img.shields.io/github/actions/workflow/status/ichiro-its/ros2-build-and-test-action/test.yaml?label=test&branch=main&style=flat-square)](https://github.com/ichiro-its/ros2-build-and-test-action/actions/workflows/test.yaml)
+[![latest version](https://img.shields.io/github/v/release/ichiro-its/ros2-ws-action?style=flat-square)](https://github.com/ichiro-its/ros2-ws-action/releases/)
+[![license](https://img.shields.io/github/license/ichiro-its/ros2-ws-action?style=flat-square)](./LICENSE)
+[![test status](https://img.shields.io/github/actions/workflow/status/ichiro-its/ros2-ws-action/test.yaml?label=test&branch=main&style=flat-square)](https://github.com/ichiro-its/ros2-ws-action/actions/workflows/test.yaml)
 
-The ROS 2 Build and Test Workspace Action is a [GitHub Action](https://github.com/features/actions) designed to build and test a [ROS 2](https://www.ros.org/) workspace containing multiple packages.
+The ROS 2 Workspace Action is a [GitHub Action](https://github.com/features/actions) designed to setup, build and test a [ROS 2](https://www.ros.org/) workspace containing multiple packages.
 This action automatically sets up ROS 2 and other dependencies used in each package, and then proceeds to build and test them all using [colcon](https://colcon.readthedocs.io/en/released/user/quick-start.html).
 
 ## Key Features
 
-The ROS 2 Build and Test Workspace Action offers the following key features:
+The ROS 2 Workspace Action offers the following key features:
 
 - **Automated ROS 2 Distribution Setup:** Automatically sets up a specified ROS 2 distribution.
 - **Dependency Management:** Automatically installs dependencies required for each package.
@@ -17,11 +17,11 @@ The ROS 2 Build and Test Workspace Action offers the following key features:
 
 ## Usage
 
-To get started with the ROS 2 Build and Test Workspace Action, you can refer to the [action.yaml](./action.yaml) file for detailed configuration options. Additionally, if you are new to GitHub Actions, you can explore the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) for a comprehensive overview.
+To get started with the ROS 2 Workspace Action, you can refer to the [action.yaml](./action.yaml) file for detailed configuration options. Additionally, if you are new to GitHub Actions, you can explore the [GitHub Actions guide](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions) for a comprehensive overview.
 
 ### Inputs
 
-Here are the available input parameters for the ROS 2 Build and Test Workspace Action:
+Here are the available input parameters for the ROS 2 Workspace Action:
 
 | Name | Default | Description |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ Here are the available input parameters for the ROS 2 Build and Test Workspace A
 
 ### Examples
 
-Here is the basic example of how to use the ROS 2 Build and Test Workspace Action to build and test a ROS 2 workspace in your GitHub Actions workflow:
+Here is the basic example of how to use the ROS 2 Workspace Action to build and test a ROS 2 workspace in your GitHub Actions workflow:
 
 ```yaml
 name: ROS 2 CI
@@ -46,7 +46,7 @@ jobs:
           path: workspace
 
       - name: Build and test
-        uses: ichiro-its/ros2-build-and-test-action@v1.0.0
+        uses: ichiro-its/ros2-ws-action@v1.0.0
 ```
 
 > It is recommended not to checkout the repository in the root directory. Otherwise, tests may fail because the package's files could be mixed with the build result.
@@ -57,7 +57,7 @@ You can specify the ROS 2 distribution to be used by providing it as an input pa
 
 ```yaml
 - name: Build and test
-  uses: ichiro-its/ros2-build-and-test-action@v1.0.0
+  uses: ichiro-its/ros2-ws-action@v1.0.0
   with:
     distro: rolling
 ```
