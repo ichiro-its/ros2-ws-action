@@ -12,11 +12,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ichiro-its/ros2-build-and-test-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
+    - uses: ichiro-its/ros2-ws-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
       with:
         distro: ${{ inputs.distro }}
 
-    - uses: ichiro-its/ros2-build-and-test-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
+    - uses: ichiro-its/ros2-ws-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
 
     - shell: bash
       run: |

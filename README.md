@@ -1,8 +1,8 @@
 # ROS 2 Workspace Action
 
-[![latest version](https://img.shields.io/github/v/release/ichiro-its/ros2-build-and-test-action?style=flat-square)](https://github.com/ichiro-its/ros2-build-and-test-action/releases/)
-[![license](https://img.shields.io/github/license/ichiro-its/ros2-build-and-test-action?style=flat-square)](./LICENSE)
-[![test status](https://img.shields.io/github/actions/workflow/status/ichiro-its/ros2-build-and-test-action/test.yaml?label=test&branch=main&style=flat-square)](https://github.com/ichiro-its/ros2-build-and-test-action/actions/workflows/test.yaml)
+[![latest version](https://img.shields.io/github/v/release/ichiro-its/ros2-ws-action?style=flat-square)](https://github.com/ichiro-its/ros2-ws-action/releases/)
+[![license](https://img.shields.io/github/license/ichiro-its/ros2-ws-action?style=flat-square)](./LICENSE)
+[![test status](https://img.shields.io/github/actions/workflow/status/ichiro-its/ros2-ws-action/test.yaml?label=test&branch=main&style=flat-square)](https://github.com/ichiro-its/ros2-ws-action/actions/workflows/test.yaml)
 
 The ROS 2 Workspace Action is a [GitHub Action](https://github.com/features/actions) designed to setup, build and test a [ROS 2](https://www.ros.org/) workspace containing multiple packages.
 This action automatically sets up ROS 2 and other dependencies used in each package, and then proceeds to build and test them all using [colcon](https://colcon.readthedocs.io/en/released/user/quick-start.html).
@@ -46,7 +46,7 @@ jobs:
           path: workspace
 
       - name: Build and test
-        uses: ichiro-its/ros2-build-and-test-action@v1.0.0
+        uses: ichiro-its/ros2-ws-action@v1.0.0
 ```
 
 > It is recommended not to checkout the repository in the root directory. Otherwise, tests may fail because the package's files could be mixed with the build result.
@@ -57,7 +57,7 @@ You can specify the ROS 2 distribution to be used by providing it as an input pa
 
 ```yaml
 - name: Build and test
-  uses: ichiro-its/ros2-build-and-test-action@v1.0.0
+  uses: ichiro-its/ros2-ws-action@v1.0.0
   with:
     distro: rolling
 ```
