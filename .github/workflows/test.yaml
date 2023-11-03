@@ -5,8 +5,8 @@ on:
   push:
     branches: [main]
 jobs:
-  individual-setup-build:
-    name: Individual Setup and build
+  individual-setup-build-test:
+    name: Individual Setup, Build and Test
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
@@ -33,6 +33,11 @@ jobs:
 
       - name: Build workspace
         uses: ./build
+        with:
+          distro: ${{ matrix.distro }}
+
+      - name: Test workspace
+        uses: ./test
         with:
           distro: ${{ matrix.distro }}
 
