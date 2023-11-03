@@ -5,18 +5,18 @@ branding:
   icon: activity
   color: gray-dark
 inputs:
-  ros2-distro:
-    description: The ROS 2 distribution to be used.
+  distro:
+    description: The ROS 2 distribution to be used
     required: false
     default: iron
 runs:
   using: composite
   steps:
-    - uses: ichiro-its/ros2-build-and-test-action/setup@d80e4254f5c4722b0dcea1b73b83d434a2db069c
+    - uses: ichiro-its/ros2-build-and-test-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
       with:
-        ros2-distro: ${{ inputs.ros2-distro }}
+        distro: ${{ inputs.distro }}
 
-    - uses: ichiro-its/ros2-build-and-test-action/build@d80e4254f5c4722b0dcea1b73b83d434a2db069c
+    - uses: ichiro-its/ros2-build-and-test-action/build@18f8d40805c2668f07b836763824d99bb6e33f9b
 
     - shell: bash
       run: |

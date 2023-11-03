@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ros2-distro: [humble, iron]
+        distro: [humble, iron]
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v4.1.1
@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
-          ref: ${{ matrix.ros2-distro }}
+          ref: ${{ matrix.distro }}
           path: examples
           sparse-checkout: |
             rclcpp/topics
@@ -29,12 +29,12 @@ jobs:
       - name: Setup workspace
         uses: ./setup
         with:
-          ros2-distro: ${{ matrix.ros2-distro }}
+          distro: ${{ matrix.distro }}
 
       - name: Build workspace
         uses: ./build
         with:
-          ros2-distro: ${{ matrix.ros2-distro }}
+          distro: ${{ matrix.distro }}
 
   setup-build-test:
     name: Setup, Build, and Test
@@ -42,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ros2-distro: [humble, iron]
+        distro: [humble, iron]
     steps:
       - name: Checkout this repository
         uses: actions/checkout@v4.1.1
@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@v4.1.1
         with:
           repository: ros2/examples
-          ref: ${{ matrix.ros2-distro }}
+          ref: ${{ matrix.distro }}
           path: examples
           sparse-checkout: |
             rclcpp/topics
@@ -60,4 +60,4 @@ jobs:
       - name: Test the action
         uses: ./
         with:
-          ros2-distro: ${{ matrix.ros2-distro }}
+          distro: ${{ matrix.distro }}
