@@ -62,6 +62,21 @@ You can specify the ROS 2 distribution to be used by providing it as an input pa
     distro: rolling
 ```
 
+#### Running Individual Setup, Build, and Test Steps
+
+You can use the `setup`, `build`, and `test` sub-actions to run each action individually for the setup, build, and test steps:
+
+```yaml
+- name: Setup workspace
+  uses: ichiro-its/ros2-ws-action/setup@v1.0.0
+
+- name: Build workspace
+  uses: ichiro-its/ros2-ws-action/build@v1.0.0
+
+- name: Test workspace
+  uses: ichiro-its/ros2-ws-action/test@v1.0.0
+```
+
 ## License
 
 This project is licensed under the terms of the [MIT License](./LICENSE).
