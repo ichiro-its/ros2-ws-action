@@ -12,7 +12,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ichiro-its/ros2-ws-action/setup@18f8d40805c2668f07b836763824d99bb6e33f9b
+    - uses: ichiro-its/ros2-ws-action/setup@34652cfbfafacc1dda0b7469d4e70a5214fd8bb9
       with:
         distro: ${{ inputs.distro }}
 
