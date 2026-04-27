@@ -14,10 +14,10 @@ jobs:
         distro: [humble, iron]
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v6.0.2
 
       - name: Checkout ROS 2 examples
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v6.0.2
         with:
           repository: ros2/examples
           ref: ${{ matrix.distro }}
@@ -50,10 +50,10 @@ jobs:
         distro: [humble, iron]
     steps:
       - name: Checkout this repository
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v6.0.2
 
       - name: Checkout ROS 2 examples
-        uses: actions/checkout@v4.1.6
+        uses: actions/checkout@v6.0.2
         with:
           repository: ros2/examples
           ref: ${{ matrix.distro }}
